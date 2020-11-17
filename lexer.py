@@ -36,10 +36,16 @@ reserved = {
 }
 
 tokens = [
+    "SUMA",
+    "RESTA",
+    "MULT",
+    "DIVI",
 
     "COMMENT",
-
+    
+    "NUMBER",
     "STRING",
+    "KEYWORD",
     "CHARACTER",
     
     "PIZQ",
@@ -48,10 +54,15 @@ tokens = [
     "LDER",
     "CIZQ",
     "CDER",
+    
+    "IGUAL",
+    "MENOR",
+    "MAYOR",
 
     "DISPATCH",
     "QUOTE",
 
+    "SWAP",
     "RESET",
 
     "INCLUDE_STR",
@@ -135,13 +146,17 @@ def t_error(t):
 
 lexer = lex.lex()
 
-#LEER
-archivo = open("prueba.txt")
-for linea in archivo:
-    print(">>"+linea)
-    lexer.input(linea)
-    while linea!='\n':
-        tok = lexer.token()
-        if not tok:
-            break  # No more input
-        print(tok)
+#LEER ARCHIVOS
+def leer_archivo(file):
+    archivo = open(file)
+    for linea in archivo:
+        print(">>"+linea)
+        lexer.input(linea)
+        while linea!='\n':
+            tok = lexer.token()
+            if not tok:
+                break  # No more input
+            print(tok)
+leer_archivo("pruebas_camilo.txt")
+leer_archivo("ejemplos_Barrerio.txt")
+leer_archivo("ejemplos_Garcia.txt")
