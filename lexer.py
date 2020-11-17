@@ -68,6 +68,8 @@ tokens = [
     "INCLUDE_STR",
 
     "INDEXOF_VEC",
+    
+    "VARIABLE"
 
 ] + list(reserved.values())
 
