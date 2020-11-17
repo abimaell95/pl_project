@@ -1,5 +1,5 @@
 # Programming Language Project
-Creation of an Lexer and Parser using PLY library of Python programming language.
+Creation of a Lexer and Parser using PLY library of Python programming language.
 
 Grupo Clojure 1:
 
