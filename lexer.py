@@ -5,13 +5,20 @@ reserved = {
 
     "for":"FOR",
     "if":"IF",
+    "while":"WHILE",
 
     "and":"AND",
+    "or":"OR",
     "not":"NOT",
 
     "def":"DEF", #definicion de variables
+    "fn":"FN", #definicion de funciones anonimas
     "defn":"DEFN",
-
+    
+    "inc":"INC", 
+    "dec":"DEC",
+    "quot":"QUOT",
+    "rem":"REM",
 
     "nil":"NIL",
     "println":"PRINT",
@@ -34,6 +41,13 @@ tokens = [
 
     "STRING",
     "CHARACTER",
+    
+    "PIZQ",
+    "PDER",
+    "LIZQ",
+    "LDER",
+    "CIZQ",
+    "CDER",
 
     "DISPATCH",
     "QUOTE",
@@ -53,6 +67,13 @@ t_DIVI = r"\/"
 t_IGUAL = r"="
 t_MENOR = r"<"
 t_MAYOR = r">"
+
+t_LIZQ = r"\{"
+t_LDER = r"\}"
+t_CIZQ = r"\["
+t_CDER = r"\]"
+t_PIZQ = r"\("
+t_PDER = r"\)"
 
 t_STRING = r'\"(.+?)?\"'
 t_CHARACTER = r"\\."
@@ -97,6 +118,19 @@ def t_INDEXOF_VEC(t):
     r'\.indexOf'
     t.type = reserved.get(t.value, 'INDEXOF_VEC')
     return t
+
+def t_VARIABLE(t):
+    r'[a-zA-Z\-\._]+[\w\-\.]*'
+    t.type = reserved.get(t.value, 'VARIABLE')
+    return t
+
+def t_newline(t):
+    r"\n+"
+    t.lexer.lineno += len(t.value)
+
+def t_error(t):
+    print("No es reconocido '%s'" % t.value[0])
+    t.lexer.skip(1)
 
 
 lexer = lex.lex()
