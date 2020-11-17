@@ -1,0 +1,62 @@
+;definicion de variables
+(def counter (atom 0))
+
+;impresion por consola
+(println "Hola")
+
+;Manipulacion de variables
+(swap! counter inc)
+(swap! counter dec)
+(reset! counter 0)
+
+;Tipos de datos y colecciones
+nil
+:kw
+\c
+\. lk
+0.5
+2
+"hola mundo"
+#{1 2 3 4}
+'(1 2 3 4)
+
+;operadores aritmeticos
+(+ 2 3)
+(- 10 5)
+(* 5 7)
+(/ 28 3)
+(rem 12 3)
+(quot 7 2)
+
+;operadores de comparacion
+(= -2 2)
+(< 6 7)
+(> 13 5)
+
+;operadores logicos
+(and 1 0)
+(or 1 0)
+(not 7)
+
+;funciones de string
+(includes? "Hello" "ell")
+(join "," [1 2 3])
+(split "Clojure is awesome!" #" ")
+
+;funciones generales de colecciones
+(count [1 2 3])
+(conj [1 2 3] 4)
+
+;funciones de mapas
+(find {:a 1 :b 2 :c 3} :a)
+
+;funciones de vectores
+(get [1 2 3] 1)
+(.indexOf [1 2 3] 2)
+
+;definicion de funciones
+((fn [a b c] (+ a b c)) 2 4 6)
+(defn foo [a b c] (* a b c))
+
+;estructuras de control
+(for [x [0 1 2 3 4 5] ] x)
