@@ -160,5 +160,5 @@ def leer_archivo(file):
                 break  # No more input
             print(tok)
 leer_archivo("pruebas_camilo.txt")
-leer_archivo("ejemplos_Barrerio.txt")
+leer_archivo("ejemplos_Barreiro.txt")
 leer_archivo("ejemplos_Garcia.txt")
