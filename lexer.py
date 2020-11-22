@@ -88,7 +88,7 @@ t_CDER = r"\]"
 t_PIZQ = r"\("
 t_PDER = r"\)"
 
-t_STRING = r'\"(.+?)?\"'
+t_STRING = r'\"(\w+?)?\"'
 t_CHARACTER = r"\\."
 t_COMMENT = r";.*"
 
@@ -159,6 +159,6 @@ def leer_archivo(file):
             if not tok:
                 break  # No more input
             print(tok)
-leer_archivo("pruebas_camilo.txt")
-leer_archivo("ejemplos_Barreiro.txt")
-leer_archivo("ejemplos_Garcia.txt")
+#leer_archivo("pruebas_camilo.txt")
+#leer_archivo("ejemplos_Barreiro.txt")
+#leer_archivo("ejemplos_Garcia.txt")
