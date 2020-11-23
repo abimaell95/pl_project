@@ -31,7 +31,8 @@ reserved = {
 
     "find":"FIND_MAP",
 
-    "get":"GET_VEC"
+    "get":"GET_VEC",
+    "subvec":"SUBVEC"
     
 }
 
@@ -69,7 +70,9 @@ tokens = [
 
     "INDEXOF_VEC",
     
-    "VARIABLE"
+    "VARIABLE",
+    
+    "READ_LINE"
 
 ] + list(reserved.values())
 
@@ -127,6 +130,11 @@ def t_INCLUDE_STR(t):
     t.type = reserved.get(t.value, 'INCLUDE_STR')
     return t
 
+def t_READ_LINE(t):
+    r'read-line'
+    t.type = reserved.get(t.value, 'READ_LINE')
+    return t
+
 def t_INDEXOF_VEC(t):
     r'\.indexOf'
     t.type = reserved.get(t.value, 'INDEXOF_VEC')
@@ -159,6 +167,8 @@ def leer_archivo(file):
             if not tok:
                 break  # No more input
             print(tok)
-leer_archivo("pruebas_camilo.txt")
+
 leer_archivo("ejemplos_Barreiro.txt")
-leer_archivo("ejemplos_Garcia.txt")
+#leer_archivo("pruebas_camilo.txt")
+#leer_archivo("ejemplos_Garcia.txt")
+
