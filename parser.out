@@ -1,0 +1,347 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Unused terminals:
+
+    AND
+    ATOM
+    CDER
+    CHARACTER
+    CIZQ
+    COMMENT
+    CONJ_COLL
+    COUNT_COLL
+    DEC
+    DEFN
+    DISPATCH
+    FIND_MAP
+    FN
+    FOR
+    GET_VEC
+    IF
+    IGUAL
+    INC
+    INCLUDE_STR
+    INDEXOF_VEC
+    JOIN_STR
+    KEYWORD
+    LDER
+    LIZQ
+    MAYOR
+    MENOR
+    NIL
+    NOT
+    OR
+    QUOT
+    QUOTE
+    REM
+    RESET
+    SPLIT_STR
+    STRING
+    SWAP
+    WHILE
+
+Grammar
+
+Rule 0     S' -> algoritmo
+Rule 1     algoritmo -> imprimir
+Rule 2     algoritmo -> definition
+Rule 3     algoritmo -> expresion
+Rule 4     expresion -> valor
+Rule 5     definition -> DEF VARIABLE valor
+Rule 6     expresion -> PIZQ operadorMat expresion expresion PDER
+Rule 7     operadorMat -> SUMA
+Rule 8     operadorMat -> RESTA
+Rule 9     operadorMat -> MULT
+Rule 10    operadorMat -> DIVI
+Rule 11    imprimir -> PRINT valor
+Rule 12    valor -> NUMBER
+Rule 13    valor -> VARIABLE
+
+Terminals, with rules where they appear
+
+AND                  : 
+ATOM                 : 
+CDER                 : 
+CHARACTER            : 
+CIZQ                 : 
+COMMENT              : 
+CONJ_COLL            : 
+COUNT_COLL           : 
+DEC                  : 
+DEF                  : 5
+DEFN                 : 
+DISPATCH             : 
+DIVI                 : 10
+FIND_MAP             : 
+FN                   : 
+FOR                  : 
+GET_VEC              : 
+IF                   : 
+IGUAL                : 
+INC                  : 
+INCLUDE_STR          : 
+INDEXOF_VEC          : 
+JOIN_STR             : 
+KEYWORD              : 
+LDER                 : 
+LIZQ                 : 
+MAYOR                : 
+MENOR                : 
+MULT                 : 9
+NIL                  : 
+NOT                  : 
+NUMBER               : 12
+OR                   : 
+PDER                 : 6
+PIZQ                 : 6
+PRINT                : 11
+QUOT                 : 
+QUOTE                : 
+REM                  : 
+RESET                : 
+RESTA                : 8
+SPLIT_STR            : 
+STRING               : 
+SUMA                 : 7
+SWAP                 : 
+VARIABLE             : 5 13
+WHILE                : 
+error                : 
+
+Nonterminals, with rules where they appear
+
+algoritmo            : 0
+definition           : 2
+expresion            : 3 6 6
+imprimir             : 1
+operadorMat          : 6
+valor                : 4 5 11
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . algoritmo
+    (1) algoritmo -> . imprimir
+    (2) algoritmo -> . definition
+    (3) algoritmo -> . expresion
+    (11) imprimir -> . PRINT valor
+    (5) definition -> . DEF VARIABLE valor
+    (4) expresion -> . valor
+    (6) expresion -> . PIZQ operadorMat expresion expresion PDER
+    (12) valor -> . NUMBER
+    (13) valor -> . VARIABLE
+
+    PRINT           shift and go to state 5
+    DEF             shift and go to state 7
+    PIZQ            shift and go to state 9
+    NUMBER          shift and go to state 10
+    VARIABLE        shift and go to state 8
+
+    algoritmo                      shift and go to state 1
+    imprimir                       shift and go to state 2
+    definition                     shift and go to state 3
+    expresion                      shift and go to state 4
+    valor                          shift and go to state 6
+
+state 1
+
+    (0) S' -> algoritmo .
+
+
+
+state 2
+
+    (1) algoritmo -> imprimir .
+
+    $end            reduce using rule 1 (algoritmo -> imprimir .)
+
+
+state 3
+
+    (2) algoritmo -> definition .
+
+    $end            reduce using rule 2 (algoritmo -> definition .)
+
+
+state 4
+
+    (3) algoritmo -> expresion .
+
+    $end            reduce using rule 3 (algoritmo -> expresion .)
+
+
+state 5
+
+    (11) imprimir -> PRINT . valor
+    (12) valor -> . NUMBER
+    (13) valor -> . VARIABLE
+
+    NUMBER          shift and go to state 10
+    VARIABLE        shift and go to state 8
+
+    valor                          shift and go to state 11
+
+state 6
+
+    (4) expresion -> valor .
+
+    $end            reduce using rule 4 (expresion -> valor .)
+    PIZQ            reduce using rule 4 (expresion -> valor .)
+    NUMBER          reduce using rule 4 (expresion -> valor .)
+    VARIABLE        reduce using rule 4 (expresion -> valor .)
+    PDER            reduce using rule 4 (expresion -> valor .)
+
+
+state 7
+
+    (5) definition -> DEF . VARIABLE valor
+
+    VARIABLE        shift and go to state 12
+
+
+state 8
+
+    (13) valor -> VARIABLE .
+
+    $end            reduce using rule 13 (valor -> VARIABLE .)
+    PIZQ            reduce using rule 13 (valor -> VARIABLE .)
+    NUMBER          reduce using rule 13 (valor -> VARIABLE .)
+    VARIABLE        reduce using rule 13 (valor -> VARIABLE .)
+    PDER            reduce using rule 13 (valor -> VARIABLE .)
+
+
+state 9
+
+    (6) expresion -> PIZQ . operadorMat expresion expresion PDER
+    (7) operadorMat -> . SUMA
+    (8) operadorMat -> . RESTA
+    (9) operadorMat -> . MULT
+    (10) operadorMat -> . DIVI
+
+    SUMA            shift and go to state 14
+    RESTA           shift and go to state 15
+    MULT            shift and go to state 16
+    DIVI            shift and go to state 17
+
+    operadorMat                    shift and go to state 13
+
+state 10
+
+    (12) valor -> NUMBER .
+
+    $end            reduce using rule 12 (valor -> NUMBER .)
+    PIZQ            reduce using rule 12 (valor -> NUMBER .)
+    NUMBER          reduce using rule 12 (valor -> NUMBER .)
+    VARIABLE        reduce using rule 12 (valor -> NUMBER .)
+    PDER            reduce using rule 12 (valor -> NUMBER .)
+
+
+state 11
+
+    (11) imprimir -> PRINT valor .
+
+    $end            reduce using rule 11 (imprimir -> PRINT valor .)
+
+
+state 12
+
+    (5) definition -> DEF VARIABLE . valor
+    (12) valor -> . NUMBER
+    (13) valor -> . VARIABLE
+
+    NUMBER          shift and go to state 10
+    VARIABLE        shift and go to state 8
+
+    valor                          shift and go to state 18
+
+state 13
+
+    (6) expresion -> PIZQ operadorMat . expresion expresion PDER
+    (4) expresion -> . valor
+    (6) expresion -> . PIZQ operadorMat expresion expresion PDER
+    (12) valor -> . NUMBER
+    (13) valor -> . VARIABLE
+
+    PIZQ            shift and go to state 9
+    NUMBER          shift and go to state 10
+    VARIABLE        shift and go to state 8
+
+    expresion                      shift and go to state 19
+    valor                          shift and go to state 6
+
+state 14
+
+    (7) operadorMat -> SUMA .
+
+    PIZQ            reduce using rule 7 (operadorMat -> SUMA .)
+    NUMBER          reduce using rule 7 (operadorMat -> SUMA .)
+    VARIABLE        reduce using rule 7 (operadorMat -> SUMA .)
+
+
+state 15
+
+    (8) operadorMat -> RESTA .
+
+    PIZQ            reduce using rule 8 (operadorMat -> RESTA .)
+    NUMBER          reduce using rule 8 (operadorMat -> RESTA .)
+    VARIABLE        reduce using rule 8 (operadorMat -> RESTA .)
+
+
+state 16
+
+    (9) operadorMat -> MULT .
+
+    PIZQ            reduce using rule 9 (operadorMat -> MULT .)
+    NUMBER          reduce using rule 9 (operadorMat -> MULT .)
+    VARIABLE        reduce using rule 9 (operadorMat -> MULT .)
+
+
+state 17
+
+    (10) operadorMat -> DIVI .
+
+    PIZQ            reduce using rule 10 (operadorMat -> DIVI .)
+    NUMBER          reduce using rule 10 (operadorMat -> DIVI .)
+    VARIABLE        reduce using rule 10 (operadorMat -> DIVI .)
+
+
+state 18
+
+    (5) definition -> DEF VARIABLE valor .
+
+    $end            reduce using rule 5 (definition -> DEF VARIABLE valor .)
+
+
+state 19
+
+    (6) expresion -> PIZQ operadorMat expresion . expresion PDER
+    (4) expresion -> . valor
+    (6) expresion -> . PIZQ operadorMat expresion expresion PDER
+    (12) valor -> . NUMBER
+    (13) valor -> . VARIABLE
+
+    PIZQ            shift and go to state 9
+    NUMBER          shift and go to state 10
+    VARIABLE        shift and go to state 8
+
+    expresion                      shift and go to state 20
+    valor                          shift and go to state 6
+
+state 20
+
+    (6) expresion -> PIZQ operadorMat expresion expresion . PDER
+
+    PDER            shift and go to state 21
+
+
+state 21
+
+    (6) expresion -> PIZQ operadorMat expresion expresion PDER .
+
+    $end            reduce using rule 6 (expresion -> PIZQ operadorMat expresion expresion PDER .)
+    PIZQ            reduce using rule 6 (expresion -> PIZQ operadorMat expresion expresion PDER .)
+    NUMBER          reduce using rule 6 (expresion -> PIZQ operadorMat expresion expresion PDER .)
+    VARIABLE        reduce using rule 6 (expresion -> PIZQ operadorMat expresion expresion PDER .)
+    PDER            reduce using rule 6 (expresion -> PIZQ operadorMat expresion expresion PDER .)
+
