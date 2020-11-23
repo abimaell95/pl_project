@@ -19,6 +19,9 @@ nil
 "hola mundo"
 #{1 2 3 4}
 '(1 2 3 4)
+true
+false
+"ejemplo""
 
 ;operadores aritmeticos
 (+ 2 3)

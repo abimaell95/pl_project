@@ -32,8 +32,7 @@ reserved = {
     "find":"FIND_MAP",
 
     "get":"GET_VEC",
-    "subvec":"SUBVEC"
-    
+    "subvec":"SUBVEC"    
 }
 
 tokens = [
@@ -48,6 +47,7 @@ tokens = [
     "STRING",
     "KEYWORD",
     "CHARACTER",
+    "BOOLEAN",
     
     "PIZQ",
     "PDER",
@@ -91,7 +91,7 @@ t_CDER = r"\]"
 t_PIZQ = r"\("
 t_PDER = r"\)"
 
-t_STRING = r'\"(\w+?)?\"'
+t_STRING = r'\"(.+?)?\"'
 t_CHARACTER = r"\\."
 t_COMMENT = r";.*"
 
@@ -113,6 +113,11 @@ def t_RESTA(t):
 def t_KEYWORD(t):
     r'\:[\w\-\.]+'
     t.value = t.value[1:]
+    return t
+
+def t_BOOLEAN(t):
+    r'true|false'
+    t.type = reserved.get(t.value, 'BOOLEAN')
     return t
 
 def t_SWAP(t):
@@ -168,7 +173,7 @@ def leer_archivo(file):
                 break  # No more input
             print(tok)
 
-#leer_archivo("ejemplos_Barreiro.txt")
+leer_archivo("ejemplos_Barreiro.txt")
 #leer_archivo("pruebas_camilo.txt")
 #leer_archivo("ejemplos_Garcia.txt")
 
