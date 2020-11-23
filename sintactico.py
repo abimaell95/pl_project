@@ -28,6 +28,9 @@ def p_operMat(p):
 def p_imprimir(p):
     'imprimir : PRINT valor'
 
+def p_secuencia(p):
+    'secuencia : valor | valor secuencia'
+
 def p_valor(p):
     '''valor : NUMBER
             | VARIABLE

@@ -4,6 +4,7 @@ Unused terminals:
 
     AND
     ATOM
+    BOOLEAN
     CDER
     CHARACTER
     CIZQ
@@ -33,10 +34,12 @@ Unused terminals:
     OR
     QUOT
     QUOTE
+    READ_LINE
     REM
     RESET
     SPLIT_STR
     STRING
+    SUBVEC
     SWAP
     WHILE
 
@@ -61,6 +64,7 @@ Terminals, with rules where they appear
 
 AND                  : 
 ATOM                 : 
+BOOLEAN              : 
 CDER                 : 
 CHARACTER            : 
 CIZQ                 : 
@@ -97,11 +101,13 @@ PIZQ                 : 6
 PRINT                : 11
 QUOT                 : 
 QUOTE                : 
+READ_LINE            : 
 REM                  : 
 RESET                : 
 RESTA                : 8
 SPLIT_STR            : 
 STRING               : 
+SUBVEC               : 
 SUMA                 : 7
 SWAP                 : 
 VARIABLE             : 5 13
