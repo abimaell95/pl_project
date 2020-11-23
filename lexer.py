@@ -59,6 +59,8 @@ tokens = [
     "IGUAL",
     "MENOR",
     "MAYOR",
+    "MENOR_IGUAL",
+    "MAYOR_IGUAL",
 
     "DISPATCH",
     "QUOTE",
@@ -83,6 +85,8 @@ t_DIVI = r"\/"
 t_IGUAL = r"="
 t_MENOR = r"<"
 t_MAYOR = r">"
+t_MENOR_IGUAL = r"<="
+t_MAYOR_IGUAL = r">="
 
 t_LIZQ = r"\{"
 t_LDER = r"\}"
