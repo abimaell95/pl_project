@@ -6,6 +6,7 @@ def p_algoritmo(p):
     '''algoritmo : imprimir
                     | definition
                     | expresion
+                    | collection
     '''
 
 def p_expresion(p):
@@ -13,7 +14,7 @@ def p_expresion(p):
     '''
 
 def p_definition(p):
-    'definition : DEF VARIABLE valor'
+    'definition : PIZQ DEF VARIABLE valor PDER'
 
 
 def p_expression_aritmetica(p):
@@ -26,16 +27,31 @@ def p_operMat(p):
                    | DIVI
     '''
 def p_imprimir(p):
-    'imprimir : PRINT valor'
+    'imprimir : PIZQ PRINT valor PDER'
+
+def p_collection(p):
+    'collection : PIZQ secuencia PDER'
 
 def p_secuencia(p):
-    'secuencia : valor | valor secuencia'
-
+    '''secuencia : valor 
+                    | valor secuencia'''
 def p_valor(p):
-    '''valor : NUMBER
+    '''valor : dato
             | VARIABLE
+            | atom
     '''
 
+def p_atom(p):
+    'atom : PIZQ ATOM dato PDER'
+
+
+def p_dato(p):
+    '''dato : NUMBER
+                | STRING
+                | BOOLEAN
+                | KEYWORD
+                | CHARACTER
+    '''
 #Errores lexicos
 def p_error(p):
     print("Syntax error in input")
