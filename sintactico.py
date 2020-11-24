@@ -323,4 +323,5 @@ def leer_archivo(file):
             if not result:
                 break  # No more input
             print(result)
-leer_archivo("pruebas.txt")
+            
+leer_archivo("algoritmo_garcia.txt")

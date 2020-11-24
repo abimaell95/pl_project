@@ -1,0 +1,8 @@
+(def vecor1 [1 2 3])
+(println (+ 2 3))
+(if true (println (+ 2 3)) (+ 5 6) )
+(def coma ",")
+(split "hola,mundo" coma)
+(def counter (atom 0))
+(join coma [1 2 3])
+(includes? "hola mundo" "hola")
