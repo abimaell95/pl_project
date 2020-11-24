@@ -43,7 +43,7 @@ def p_operMat(p):
 #NICOLE GARCIA    
 #impresion por consola
 def p_imprimir(p):
-    'imprimir : PIZQ PRINT valor PDER'
+    'imprimir : PIZQ PRINT expresion PDER'
 
 #NICOLE GARCIA
 def p_secuencia(p):
@@ -303,11 +303,15 @@ def p_error(p):
 
 parser = yacc.yacc()
 
-while True:
-    try:
-        s=input("calc >> ")
-    except EOFError:
-        break
-    if not s : continue
-    result = parser.parse(s)
-    print(result)
+
+#LEER ARCHIVOS
+def leer_archivo(file):
+    archivo = open(file)
+    for linea in archivo:
+        print(">> "+linea)
+        while linea!='\n':
+            result = parser.parse(linea)
+            if not result:
+                break  # No more input
+            print(result)
+leer_archivo("pruebas.txt")
