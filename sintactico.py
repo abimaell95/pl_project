@@ -67,6 +67,21 @@ def p_collection_lista(p):
                 | QUOTE PIZQ PDER
     '''
 
+def p_collection_set(p):
+    '''collection : DISPATCH LIZQ secuencia LDER
+                |   DISPATCH LIZQ LDER
+    '''
+
+def p_collection_map(p):
+    '''collection : LIZQ pair_key_value LDER
+                |   LIZQ LDER
+    '''
+
+def p_pair_key_value(p):
+    '''pair_key_value : KEYWORD dato 
+                        | KEYWORD dato pair_key_value
+    '''
+
 # Doménica Barreiro
 def p_sentenciaFor(p):
     'sentenciaFor : PIZQ FOR CIZQ VARIABLE collection CDER algoritmo PDER'
