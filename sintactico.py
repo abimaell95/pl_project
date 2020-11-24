@@ -108,9 +108,15 @@ def p_pair_key_value(p):
                         | KEYWORD dato pair_key_value
     '''
 
+# Doméncia Barreiro
+def p_iterable(p):
+    '''iterable : collection
+                | VARIABLE
+    '''
+
 # Doménica Barreiro
 def p_sentenciaFor(p):
-    'sentenciaFor : PIZQ FOR CIZQ VARIABLE collection CDER body PDER'
+    'sentenciaFor : PIZQ FOR CIZQ VARIABLE iterable CDER body PDER'
 
 
 def p_funcion(p):
