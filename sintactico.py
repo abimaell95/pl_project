@@ -16,6 +16,7 @@ def p_algoritmo(p):
                     | funciones_collection
                     | funcion
                     | variable_manipulation
+                    | funciones_aritmeticas
     '''
 
 def p_expresion(p):
@@ -30,6 +31,8 @@ def p_expression_aritmetica(p):
     'expresion : PIZQ operadorMat expresion expresion PDER'
 
 #NICOLE GARCIA
+
+
 def p_operMat(p):
     '''operadorMat : SUMA
                    | RESTA
@@ -46,6 +49,18 @@ def p_imprimir(p):
 def p_secuencia(p):
     '''secuencia : valor 
                     | valor secuencia'''
+def p_boolean_operator(p):
+    '''boolean_operator : AND
+                        | OR
+    '''
+
+
+def p_expresion_booleana(p):
+    'expresion : PIZQ boolean_operator algoritmo algoritmo PDER'
+
+
+def p_expresion_booleana_unary(p):
+    'expresion : PIZQ NOT algoritmo PDER'
 
 
 # Doménica Barreiro
@@ -129,7 +144,27 @@ def p_parametro(p):
                     | CIZQ VARIABLE parametro CDER
     '''
 
+def p_parametro_fn(p):
+    'parametro : CIZQ parametro CDER'
 
+def p_funciones_aritmeticas(p):
+    '''funciones_aritmeticas : inc
+                            | dec
+                            | quot
+                            | rem
+    '''
+
+def p_inc(p):
+    'inc : PIZQ INC numeric_value PDER'
+
+def p_dec(p):
+    'dec : PIZQ DEC numeric_value PDER'
+
+def p_quot(p):
+    'quot : PIZQ QUOT numeric_value numeric_value PDER'
+
+def p_rem(p):
+    'rem : PIZQ REM numeric_value numeric_value PDER'
 
 
 def p_valor(p):
@@ -239,6 +274,15 @@ def p_atom_value(p):
                 |   atom
     '''
 
+
+
+def p_atom(p):
+    'atom : PIZQ ATOM dato PDER'
+
+def p_numeric_value(p):
+    '''numeric_value : NUMBER 
+                    | VARIABLE
+    '''
 
 def p_dato(p):
     '''dato : NUMBER
