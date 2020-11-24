@@ -7,6 +7,11 @@ def p_algoritmo(p):
                     | definition
                     | expresion
                     | collection
+                    | comparacion
+                    | count_coll
+                    | conj_coll
+                    | leerDatos
+                    | sentenciaFor
     '''
 
 def p_expresion(p):
@@ -16,8 +21,10 @@ def p_expresion(p):
 def p_definition(p):
     'definition : PIZQ DEF VARIABLE valor PDER'
 
+def p_imprimir(p):
+    'imprimir : PIZQ PRINT valor PDER'
 
-def p_expression_aritmetica(p):
+def p_expresion_aritmetica(p):
     'expresion : PIZQ operadorMat expresion expresion PDER'
 
 def p_operMat(p):
@@ -26,15 +33,46 @@ def p_operMat(p):
                    | MULT
                    | DIVI
     '''
-def p_imprimir(p):
-    'imprimir : PIZQ PRINT valor PDER'
+# Doménica Barreiro
+def p_leerDatos(p):
+    '''leerDatos : PIZQ DEF VARIABLE PIZQ READ_LINE PDER PDER
+                | PIZQ READ_LINE PDER
+    '''
 
-def p_collection(p):
-    'collection : PIZQ secuencia PDER'
+# Doménica Barreiro
+def p_comparacion(p):
+    'comparacion : PIZQ operadorComp expresion expresion PDER'
+
+# Doménica Barreiro
+def p_operComp(p):
+    '''operadorComp : IGUAL
+                   | MENOR
+                   | MAYOR
+                   | MENOR_IGUAL
+                   | MAYOR_IGUAL
+    '''
+# Doménica Barreiro
+def p_count_coll(p):
+    'count_coll : PIZQ COUNT_COLL collection PDER'
+
+# Doménica Barreiro
+def p_conj_coll(p):
+    'conj_coll : PIZQ CONJ_COLL collection secuencia PDER'
+
+# Doménica Barreiro
+def p_collection_lista(p):
+    '''collection : QUOTE PIZQ secuencia PDER
+                | QUOTE PIZQ PDER
+    '''
+
+# Doménica Barreiro
+def p_sentenciaFor(p):
+    'sentenciaFor : PIZQ FOR CIZQ VARIABLE collection CDER algoritmo PDER'
 
 def p_secuencia(p):
     '''secuencia : valor 
-                    | valor secuencia'''
+                | valor secuencia'''
+
 def p_valor(p):
     '''valor : dato
             | VARIABLE
@@ -44,14 +82,15 @@ def p_valor(p):
 def p_atom(p):
     'atom : PIZQ ATOM dato PDER'
 
-
 def p_dato(p):
     '''dato : NUMBER
                 | STRING
                 | BOOLEAN
                 | KEYWORD
                 | CHARACTER
+                | NIL
     '''
+
 #Errores lexicos
 def p_error(p):
     print("Syntax error in input")
