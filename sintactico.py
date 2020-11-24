@@ -17,6 +17,8 @@ def p_algoritmo(p):
                     | funcion
                     | variable_manipulation
                     | funciones_aritmeticas
+                    | map_functions
+                    | while_structure
     '''
 
 def p_expresion(p):
@@ -128,6 +130,13 @@ def p_iterable(p):
     '''iterable : collection
                 | VARIABLE
     '''
+def p_map_functions(p):
+    'map_functions: find'
+
+def p_find(p):
+    '''find : PIZQ FIND_MAP map KEYWORD PDER
+            |  PIZQ FIND_MAP VARIABLE KEYWORD PDER
+    ''' 
 
 # Doménica Barreiro
 def p_sentenciaFor(p):
@@ -218,6 +227,9 @@ def p_vector(p):
 #if
 def p_if_structure(p):
     'if_structure : PIZQ IF algoritmo body PDER'
+
+def p_while_structure(p):
+    'while_structure : PIZQ WHILE algoritmo body PDER'
 
 #NICOLE GARCIA
 #funciones de strings
