@@ -8,10 +8,9 @@ def p_algoritmo(p):
                     | expresion
                     | collection
                     | comparacion
-                    | count_coll
-                    | conj_coll
                     | leerDatos
                     | sentenciaFor
+                    | funciones_collection
                     | funcion
                     | variable_manipulation
     '''
@@ -35,6 +34,7 @@ def p_operMat(p):
                    | MULT
                    | DIVI
     '''
+
 # Doménica Barreiro
 def p_leerDatos(p):
     '''leerDatos : PIZQ DEF VARIABLE PIZQ READ_LINE PDER PDER
@@ -53,6 +53,15 @@ def p_operComp(p):
                    | MENOR_IGUAL
                    | MAYOR_IGUAL
     '''
+def p_collection(p):
+    'collection : lista'
+
+# Doménica Barreiro
+def p_funciones_collection(p):
+    '''funciones_collection : count_coll
+                          | conj_coll
+    '''
+
 # Doménica Barreiro
 def p_count_coll(p):
     'count_coll : PIZQ COUNT_COLL collection PDER'
@@ -62,8 +71,8 @@ def p_conj_coll(p):
     'conj_coll : PIZQ CONJ_COLL collection secuencia PDER'
 
 # Doménica Barreiro
-def p_collection_lista(p):
-    '''collection : QUOTE PIZQ secuencia PDER
+def p_lista(p):
+    '''lista : QUOTE PIZQ secuencia PDER
                 | QUOTE PIZQ PDER
     '''
 
