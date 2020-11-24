@@ -125,7 +125,7 @@ def p_pair_key_value(p):
                         | KEYWORD dato pair_key_value
     '''
 
-# Doméncia Barreiro
+# Doménica Barreiro
 def p_iterable(p):
     '''iterable : collection
                 | VARIABLE
@@ -324,4 +324,4 @@ def leer_archivo(file):
                 break  # No more input
             print(result)
             
-leer_archivo("algoritmo_garcia.txt")
+leer_archivo("algoritmo_Barreiro.txt")
