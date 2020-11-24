@@ -1,0 +1,10 @@
+(def mensaje (read-line))
+
+(def numero 7)
+(def lista '(2 3 4))
+
+(for [x lista] (+ x numero))
+
+(count lista)
+(conj lista 2 3 4)
+(>= numero contador)
