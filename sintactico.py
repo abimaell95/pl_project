@@ -96,11 +96,11 @@ def p_funciones_collection(p):
 
 # Doménica Barreiro
 def p_count_coll(p):
-    'count_coll : PIZQ COUNT_COLL collection PDER'
+    'count_coll : PIZQ COUNT_COLL iterable PDER'
 
 # Doménica Barreiro
 def p_conj_coll(p):
-    'conj_coll : PIZQ CONJ_COLL collection secuencia PDER'
+    'conj_coll : PIZQ CONJ_COLL iterable secuencia PDER'
 
 # Doménica Barreiro
 def p_lista(p):
