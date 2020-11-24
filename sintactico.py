@@ -185,22 +185,26 @@ def p_vector_function(p):
 #NICOLE GARCIA
 #get
 def p_get_vec(p):
-    'get_vec : PIZQ GET_VEC vector NUMBER PDER'
+    'get_vec : PIZQ GET_VEC vector_value NUMBER PDER'
 
 #NICOLE GARCIA
 #indexOF
 def p_indexOf_vec(p):
-    'indexOf_vec : PIZQ INDEXOF_VEC vector NUMBER PDER'
+    'indexOf_vec : PIZQ INDEXOF_VEC vector_value NUMBER PDER'
 
 #NICOLE GARCIA
 #subvec/slicing
 def p_subvec(p):
-    'subvec : PIZQ SUBVEC vector index_vec PDER'
+    'subvec : PIZQ SUBVEC vector_value index_vec PDER'
 
 #NICOLE GARCIA
 def p_index_vec(p):
     '''index_vec :  NUMBER 
                 | NUMBER NUMBER
+    '''
+def p_vector_value(p):
+    '''vector_value : vector
+                    | VARIABLE
     '''
 
 #NICOLE GARCIA
