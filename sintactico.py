@@ -12,6 +12,8 @@ def p_algoritmo(p):
                     | conj_coll
                     | leerDatos
                     | sentenciaFor
+                    | funcion
+                    | variable_manipulation
     '''
 
 def p_expresion(p):
@@ -73,11 +75,48 @@ def p_secuencia(p):
     '''secuencia : valor 
                 | valor secuencia'''
 
+
+def p_funcion(p):
+    '''funcion : PIZQ FN parametro expresion PDER
+                | PIZQ DEFN VARIABLE parametro expresion PDER
+    '''
+
+def p_parametro(p):
+    '''parametro : VARIABLE 
+                    | VARIABLE parametro
+    '''
+
+def p_parametro_fn(p):
+    'parametro : CIZQ parametro CDER'
+
+
+
+
+
+
 def p_valor(p):
     '''valor : dato
             | VARIABLE
             | atom
     '''
+
+def p_variable_manipulation(p):
+    '''variable_manipulation :  swap
+                            |  reset
+    '''
+
+def p_reset(p):
+    'reset : PIZQ RESET atom_value valor PDER'
+
+def p_swap(p):
+    'swap : PIZQ SWAP atom_value funcion PDER'
+
+def p_atom_value(p):
+    '''atom_value : VARIABLE
+                |   atom
+    '''
+
+
 
 def p_atom(p):
     'atom : PIZQ ATOM dato PDER'
