@@ -5,16 +5,16 @@ from lexer import tokens
 def p_algoritmo(p):
     '''algoritmo : imprimir
                     | definition
+                    | COMMENT
                     | expresion
                     | collection
                     | vector_function
                     | if_structure
                     | string_function
                     | comparacion
-                    | count_coll
-                    | conj_coll
                     | leerDatos
                     | sentenciaFor
+                    | funciones_collection
                     | funcion
                     | variable_manipulation
     '''
@@ -48,7 +48,7 @@ def p_secuencia(p):
     '''secuencia : valor 
                     | valor secuencia'''
 
-#NICOLE GARCIA
+
 # Doménica Barreiro
 def p_leerDatos(p):
     '''leerDatos : PIZQ DEF VARIABLE PIZQ READ_LINE PDER PDER
@@ -67,6 +67,19 @@ def p_operComp(p):
                    | MENOR_IGUAL
                    | MAYOR_IGUAL
     '''
+def p_collection(p):
+    '''collection : lista
+                    | vector
+                    | set
+                    | map
+    '''
+
+# Doménica Barreiro
+def p_funciones_collection(p):
+    '''funciones_collection : count_coll
+                          | conj_coll
+    '''
+
 # Doménica Barreiro
 def p_count_coll(p):
     'count_coll : PIZQ COUNT_COLL collection PDER'
@@ -76,18 +89,18 @@ def p_conj_coll(p):
     'conj_coll : PIZQ CONJ_COLL collection secuencia PDER'
 
 # Doménica Barreiro
-def p_collection_lista(p):
-    '''collection : QUOTE PIZQ secuencia PDER
+def p_lista(p):
+    '''lista : QUOTE PIZQ secuencia PDER
                 | QUOTE PIZQ PDER
     '''
 
-def p_collection_set(p):
-    '''collection : DISPATCH LIZQ secuencia LDER
+def p_set(p):
+    '''set : DISPATCH LIZQ secuencia LDER
                 |   DISPATCH LIZQ LDER
     '''
 
-def p_collection_map(p):
-    '''collection : LIZQ pair_key_value LDER
+def p_map(p):
+    '''map : LIZQ pair_key_value LDER
                 |   LIZQ LDER
     '''
 
@@ -98,7 +111,7 @@ def p_pair_key_value(p):
 
 # Doménica Barreiro
 def p_sentenciaFor(p):
-    'sentenciaFor : PIZQ FOR CIZQ VARIABLE collection CDER algoritmo PDER'
+    'sentenciaFor : PIZQ FOR CIZQ VARIABLE collection CDER body PDER'
 
 
 def p_funcion(p):
@@ -107,14 +120,9 @@ def p_funcion(p):
     '''
 
 def p_parametro(p):
-    '''parametro : VARIABLE 
-                    | VARIABLE parametro
+    '''parametro : CIZQ VARIABLE CDER
+                    | CIZQ VARIABLE parametro CDER
     '''
-
-def p_parametro_fn(p):
-    'parametro : CIZQ parametro CDER'
-
-
 
 
 
@@ -157,12 +165,14 @@ def p_index_vec(p):
 #NICOLE GARCIA
 #vector
 def p_vector(p):
-    'vector : CIZQ secuencia CDER'
+    '''vector : CIZQ secuencia CDER
+                | CIZQ CDER
+    '''
 
 #NICOLE GARCIA
 #if
 def p_if_structure(p):
-    'if_structure : PIZQ IF BOOLEAN body_if PDER'
+    'if_structure : PIZQ IF BOOLEAN body PDER'
 
 #NICOLE GARCIA
 #funciones de strings
@@ -195,14 +205,11 @@ def p_string(p):
     '''
 
 #NICOLE GARCIA
-def p_body_if(p):
-    '''body_if : expresion 
-                | expresion expresion
+def p_body(p):
+    '''body : algoritmo 
+                | algoritmo algoritmo
     '''
 
-def p_collection(p):
-    ''' collection : vector
-    '''
 
 #NICOLE GARCIA
 #atomo
