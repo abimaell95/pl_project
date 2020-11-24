@@ -337,3 +337,5 @@ def leer_archivo(file):
             print(result)
             
 leer_archivo("algoritmo_Barreiro.txt")
+leer_archivo("algoritmo_garcia.txt")
+leer_archivo("algoritmo_camilo.txt")
