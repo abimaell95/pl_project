@@ -7,7 +7,6 @@ def p_algoritmo(p):
                     | definition
                     | COMMENT
                     | expresion
-                    | collection
                     | vector_function
                     | if_structure
                     | string_function
@@ -131,6 +130,7 @@ def p_valor(p):
     '''valor : dato
             | VARIABLE
             | atom
+            | collection
     '''
 
 #NICOLE GARCIA
@@ -172,7 +172,7 @@ def p_vector(p):
 #NICOLE GARCIA
 #if
 def p_if_structure(p):
-    'if_structure : PIZQ IF BOOLEAN body PDER'
+    'if_structure : PIZQ IF algoritmo body PDER'
 
 #NICOLE GARCIA
 #funciones de strings
