@@ -56,11 +56,11 @@ def p_boolean_operator(p):
                         | OR
     '''
 
-
+#Camilo G
 def p_expresion_booleana(p):
     'expresion : PIZQ boolean_operator algoritmo algoritmo PDER'
 
-
+#Camilo G
 def p_expresion_booleana_unary(p):
     'expresion : PIZQ NOT algoritmo PDER'
 
@@ -110,16 +110,19 @@ def p_lista(p):
                 | QUOTE PIZQ PDER
     '''
 
+#Camilo G
 def p_set(p):
     '''set : DISPATCH LIZQ secuencia LDER
                 |   DISPATCH LIZQ LDER
     '''
 
+#Camilo G
 def p_map(p):
     '''map : LIZQ pair_key_value LDER
                 |   LIZQ LDER
     '''
 
+#Camilo G
 def p_pair_key_value(p):
     '''pair_key_value : KEYWORD dato 
                         | KEYWORD dato pair_key_value
@@ -130,6 +133,8 @@ def p_iterable(p):
     '''iterable : collection
                 | VARIABLE
     '''
+
+#Camilo G
 def p_map_functions(p):
     'map_functions : find'
 
@@ -143,19 +148,24 @@ def p_sentenciaFor(p):
     'sentenciaFor : PIZQ FOR CIZQ VARIABLE iterable CDER body PDER'
 
 
+#Camilo G
 def p_funcion(p):
     '''funcion : PIZQ FN parametro expresion PDER
                 | PIZQ DEFN VARIABLE parametro expresion PDER
     '''
 
+
+#Camilo G
 def p_parametro(p):
     '''parametro : CIZQ VARIABLE CDER
                     | CIZQ VARIABLE parametro CDER
     '''
 
+#Camilo G
 def p_parametro_fn(p):
     'parametro : CIZQ parametro CDER'
 
+#Camilo G
 def p_funciones_aritmeticas(p):
     '''funciones_aritmeticas : inc
                             | dec
@@ -228,6 +238,7 @@ def p_vector(p):
 def p_if_structure(p):
     'if_structure : PIZQ IF algoritmo body PDER'
 
+#Camilo G
 def p_while_structure(p):
     'while_structure : PIZQ WHILE algoritmo body PDER'
 
@@ -279,6 +290,7 @@ def p_variable_manipulation(p):
                             |  reset
     '''
 
+#Camilo G
 def p_reset(p):
     'reset : PIZQ RESET atom_value valor PDER'
 
