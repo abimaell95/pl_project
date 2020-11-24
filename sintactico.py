@@ -131,7 +131,7 @@ def p_iterable(p):
                 | VARIABLE
     '''
 def p_map_functions(p):
-    'map_functions: find'
+    'map_functions : find'
 
 def p_find(p):
     '''find : PIZQ FIND_MAP map KEYWORD PDER
@@ -291,9 +291,6 @@ def p_atom_value(p):
     '''
 
 
-
-def p_atom(p):
-    'atom : PIZQ ATOM dato PDER'
 
 def p_numeric_value(p):
     '''numeric_value : NUMBER 
