@@ -3,12 +3,12 @@ export const userService = {
 };
 
 
-function getAll() {
+function getAll(string) {
     const requestOptions = {
         method: 'GET'
     };
 
-    return fetch('/parse',requestOptions).then(handleResponse)
+    return fetch(`/parse?s=${string}`,requestOptions).then(handleResponse)
 }
 
 function handleResponse(response) {
