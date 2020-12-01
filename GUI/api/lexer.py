@@ -158,12 +158,24 @@ def t_newline(t):
     r"\n+"
     t.lexer.lineno += len(t.value)
 
+token_list = []
+
 def t_error(t):
-    print("No es reconocido '%s'" % t.value[0])
+    token_list.append(f'{"None"},{t.value[0]}')
     t.lexer.skip(1)
 
 
 lexer = lex.lex()
+
+def get_token(string):
+    token_list.clear()
+    lexer.input(string)
+    while string!='\n':
+        tok = lexer.token()
+        if not tok:
+            break  # No more input
+        token_list.append(f'{tok.type},{tok.value}')
+    return token_list
 
 #LEER ARCHIVOS
 def leer_archivo(file):

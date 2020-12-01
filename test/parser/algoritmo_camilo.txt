@@ -1,0 +1,5 @@
+(def a 10)
+(while (< a 5) (dec a))
+(println a)
+(println (or a 1))
+(not a)

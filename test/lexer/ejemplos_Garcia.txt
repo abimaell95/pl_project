@@ -1,0 +1,62 @@
+;definicion de variables
+(def rest (atom 0))
+
+;impresion por consola
+(println "Konichiwa")
+
+;Manipulacion de variables
+(swap! rest inc)
+(swap! rest dec)
+(reset! rest 0)
+
+;Tipos de datos y colecciones
+nil
+:word
+\c
+0.3
+1
+"Halo"
+#{21 9 1}
+'(21 0 1)
+
+;operadores aritmeticos
+(+ 2 1)
+(- 1 5)
+(* 7 7)
+(/ 0 1)
+(rem 3 5)
+(quot 1 2)
+
+;operadores de comparacion
+(= -1 1)
+(< 3 6)
+(> 7 8)
+
+;operadores logicos
+(and 1 1)
+(or 0 0)
+(not 0)
+
+;funciones de string
+(includes? "Hue" "u")
+(join "," [12 9 3])
+(split "Home|run!" #"|")
+
+;funciones generales de colecciones
+(count [5 3 6])
+(conj [6 0 4] 1)
+
+;funciones de mapas
+(find {:x 3 :y 5 :z 3} :z)
+
+;funciones de vectores
+(get [2 4 5] 2)
+(.indexOf [1 5 6] 1)
+
+;definicion de funciones
+((fn [x y z] (- x y z)) 2 4 3)
+(defn foo [x y z] (* x y z))
+
+;estructuras de control
+(if (< 2 10) "yes" "no")
+ 

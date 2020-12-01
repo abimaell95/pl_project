@@ -319,10 +319,17 @@ def p_dato(p):
     '''
 
 #Errores lexicos
+
+result = []
 def p_error(p):
-    print("Syntax error in input")
+    result.append("Error")
 
 parser = yacc.yacc()
+
+def get_production(string):
+    result.clear()
+    parser.parse(string)
+    return result
 
 
 #LEER ARCHIVOS
@@ -336,4 +343,4 @@ def leer_archivo(file):
                 break  # No more input
             print(result)
             
-leer_archivo("algoritmo_Barreiro.txt")
+#leer_archivo("algoritmo_Barreiro.txt")
