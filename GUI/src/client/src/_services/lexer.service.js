@@ -8,7 +8,7 @@ function getAll(string) {
         method: 'GET'
     };
 
-    return fetch(`/lex?s=${string}`,requestOptions).then(handleResponse)
+    return fetch(`http://127.0.0.1:5000/lex?s=${string}`,requestOptions).then(handleResponse)
 }
 
 function handleResponse(response) {
