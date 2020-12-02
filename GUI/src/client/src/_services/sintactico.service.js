@@ -1,14 +1,15 @@
-export const userService = {
+export const sintacticoService = {
     getAll
 };
 
 
 function getAll(string) {
     const requestOptions = {
-        method: 'GET'
+        method: 'GET',
+        headers: { 'Content-Type': 'application/json' }
     };
 
-    return fetch(`http://127.0.0.1:5000/parse?s=${string}`,requestOptions).then(handleResponse)
+    return fetch(`http://localhost:5000/parse?s=${string}`,requestOptions).then(handleResponse)
 }
 
 function handleResponse(response) {

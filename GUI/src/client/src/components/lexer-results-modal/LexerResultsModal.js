@@ -1,5 +1,5 @@
-const list = [{char:"atom",token:"ATOM"},{char:"def",token:"DEF"},{char:"(",token:"PLEFT"},{char:"1",token:"NUMBER"},{char:"1",token:"NUMBER"},{char:"1",token:"NUMBER"},{char:"1",token:"NUMBER"},{char:"1",token:"NUMBER"},{char:"1",token:"NUMBER"},{char:"1",token:"NUMBER"},{char:"1",token:"NUMBER"},{char:"1",token:"NUMBER"},{char:"1",token:"NUMBER"}]
 function LexerResultsModal(props){
+    console.log()
     return(
         <>
             <div className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
@@ -28,14 +28,15 @@ function LexerResultsModal(props){
                                         Token
                                     </div>
                                 </div>
-                                {list.map((tok)=>{
+                                {props.token.data.map((tok)=>{
+                                    let [char,token] = tok.split(",")
                                     return(
                                         <div className="grid grid-cols-2">
                                             <div className="col-span-1 bg-gray-200 text-gray-900 text-center py-1 font-body">
-                                                {tok.char}
+                                                {char}
                                             </div>
                                             <div className="col-span-1 bg-gray-200 text-gray-900 text-center py-1 font-body">
-                                                {tok.token}
+                                                {token}
                                             </div>
                                         </div>
                                     )
@@ -48,6 +49,7 @@ function LexerResultsModal(props){
                                 className="text-gray-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1" 
                                 type="button"
                                 style={{ transition: "all .15s ease" }}
+                                onClick={props.show}
                             >
                                 Cerrar
                             </button>

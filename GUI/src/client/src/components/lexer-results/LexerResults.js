@@ -1,6 +1,6 @@
 import {LexerResultsTile} from '../../components';
 
-const list = [{line:"(def a 1)"},{line:"(+ 1 2)"},{line:"(+ 1 2)"},{line:"(+ 1 2)"},{line:"(+ 1 2)"}]
+//const list = [{line:"(def a 1)"},{line:"(+ 1 2)"},{line:"(+ 1 2)"},{line:"(+ 1 2)"},{line:"(+ 1 2)"}]
 
 function LexerResults(props){
     return(
@@ -13,8 +13,8 @@ function LexerResults(props){
                     Result
                 </div>
             </div>
-            {list.map((line)=>{
-                return <LexerResultsTile {...line}/>
+            {props.lines.map((line,idx)=>{
+                return <LexerResultsTile line={line} showModal={props.showModal} setIndexTok={()=>{props.setIndexTok(idx)}}/>
             })}
         </div>
     )
