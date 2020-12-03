@@ -5,7 +5,7 @@ function App() {
   const [input,setInput] = useState("");
   const [action,setAction] = useState("");
   const [parseObject,setParseObject] = useState(null)
-  const [l_list,setL_list] = useState([])
+  let [l_list,setL_list] = useState([])
   const [line_list,setLine_list] = useState([])
   const [showModal,setShowModal] = useState(false)
   const [index_token,setIndex_token] = useState(0);
@@ -37,6 +37,7 @@ function App() {
 
   function getTokens(){
     setLine_list(input.split('\n'))
+    l_list = []
     for(let line of input.split('\n')){
       lexerService.getAll(line).then(
         object=>{

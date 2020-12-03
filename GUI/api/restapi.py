@@ -20,7 +20,9 @@ def lex():
 @app.route('/parse')
 def parse():
     string = request.args.get('s')
+    print(string)
     res = get_production(string)
+    print(res)
     if(len(res)==0):
         return jsonify("Valid Syntax")
     else:

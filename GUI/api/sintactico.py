@@ -19,6 +19,7 @@ def p_algoritmo(p):
                     | funciones_aritmeticas
                     | map_functions
                     | while_structure
+                    | algoritmo algoritmo
     '''
 
 def p_expresion(p):
@@ -26,7 +27,7 @@ def p_expresion(p):
     '''
 #NICOLE GARCIA
 def p_definition(p):
-    'definition : PIZQ DEF VARIABLE valor PDER'
+    'definition : PIZQ DEF VARIABLE algoritmo PDER'
 
 #NICOLE GARCIA
 def p_expression_aritmetica(p):
@@ -343,4 +344,4 @@ def leer_archivo(file):
                 break  # No more input
             print(result)
             
-#leer_archivo("algoritmo_Barreiro.txt")
+#leer_archivo("sample.txt")

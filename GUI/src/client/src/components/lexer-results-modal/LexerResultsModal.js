@@ -22,10 +22,10 @@ function LexerResultsModal(props){
                             <div className="flex flex-col overflow-auto h-96">
                                 <div className="grid grid-cols-2">
                                     <div className="col-span-1 bg-gray-900 rounded-tl-md text-white text-center py-1">
-                                        Char
+                                        Token
                                     </div>
                                     <div className="col-span-1 bg-gray-900 rounded-tr-md text-white text-center py-1">
-                                        Token
+                                        Char
                                     </div>
                                 </div>
                                 {props.token.data.map((tok)=>{
